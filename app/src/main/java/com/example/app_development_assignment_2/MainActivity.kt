@@ -5,8 +5,15 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.app_development_assignment_2.adapter.StudentsRecyclerAdapter
+import com.example.app_development_assignment_2.model.Model
+import com.example.app_development_assignment_2.model.Student
 
 class MainActivity : AppCompatActivity() {
+    private var students = ArrayList<Student>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -16,5 +23,11 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
+
+        students = Model.shared.students
+        val studentsRecyclerView = findViewById<RecyclerView>(R.id.main_activity_students_recycler_view)
+        studentsRecyclerView.setHasFixedSize(true)
+        studentsRecyclerView.layoutManager = LinearLayoutManager(this)
+        studentsRecyclerView.adapter = StudentsRecyclerAdapter(students)
     }
 }
