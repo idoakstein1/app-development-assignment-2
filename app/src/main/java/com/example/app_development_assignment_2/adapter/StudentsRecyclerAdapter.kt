@@ -1,9 +1,11 @@
 package com.example.app_development_assignment_2.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_development_assignment_2.R
+import com.example.app_development_assignment_2.StudentDetailActivity
 import com.example.app_development_assignment_2.model.Student
 
 class StudentsRecyclerAdapter(private val students: ArrayList<Student>) : RecyclerView.Adapter<StudentsViewHolder>() {
@@ -18,5 +20,15 @@ class StudentsRecyclerAdapter(private val students: ArrayList<Student>) : Recycl
 
     override fun onBindViewHolder(holder: StudentsViewHolder, position: Int) {
         holder.bind(students[position], position)
+        val student = students[position]
+        holder.itemView.apply {
+            setOnClickListener {
+                val context = it.context
+                val intent = Intent(context, StudentDetailActivity::class.java).apply {
+                    putExtra("student", student)
+                }
+                context.startActivity(intent)
+            }
+        }
     }
 }
