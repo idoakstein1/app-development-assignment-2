@@ -59,8 +59,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:clickable="false"
         android:text="Checked"
         app:layout_constraintStart_toStartOf="@+id/student_details_activity_address_text_view"
         app:layout_constraintTop_toBottomOf="@+id/student_details_activity_address_text_view" />
+
+    <Button
+        android:id="@+id/student_details_activity_edit_details_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/student_details_activity_cancel_button" />
+
+    <Button
+        android:id="@+id/student_details_activity_cancel_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/student_details_activity_edit_details_button"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

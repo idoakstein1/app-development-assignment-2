@@ -25,7 +25,7 @@ class StudentsRecyclerAdapter(private val students: ArrayList<Student>) : Recycl
             setOnClickListener {
                 val context = it.context
                 val intent = Intent(context, StudentDetailsActivity::class.java).apply {
-                    putExtra("student", student)
+                    putExtra("studentPosition", position)
                 }
                 context.startActivity(intent)
             }
