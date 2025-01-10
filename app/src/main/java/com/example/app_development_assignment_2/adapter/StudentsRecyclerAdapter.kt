@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.app_development_assignment_2.R
-import com.example.app_development_assignment_2.StudentDetailActivity
+import com.example.app_development_assignment_2.StudentDetailsActivity
 import com.example.app_development_assignment_2.model.Student
 
 class StudentsRecyclerAdapter(private val students: ArrayList<Student>) : RecyclerView.Adapter<StudentsViewHolder>() {
@@ -24,7 +24,7 @@ class StudentsRecyclerAdapter(private val students: ArrayList<Student>) : Recycl
         holder.itemView.apply {
             setOnClickListener {
                 val context = it.context
-                val intent = Intent(context, StudentDetailActivity::class.java).apply {
+                val intent = Intent(context, StudentDetailsActivity::class.java).apply {
                     putExtra("student", student)
                 }
                 context.startActivity(intent)
